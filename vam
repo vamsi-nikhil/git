@@ -1,0 +1,14 @@
+node{
+   stage('scm checkout'){
+       git credentialsId: 'git-creds', url: 'https://github.com/vamsi-nikhil/git.git'
+ }
+ stage('gradle package'){
+    def gradleHome = tool name: 'gradle', type: 'gradle'
+    def gradleCMD = "${gradleHome}/bin/gradle"
+    sh "${gradleCMD} clean build"
+    }
+    
+    }
+    
+    
+   
